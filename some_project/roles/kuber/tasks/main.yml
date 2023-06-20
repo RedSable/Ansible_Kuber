@@ -1,0 +1,11 @@
+- name: User role hello
+  import_tasks: hello.yml
+
+- name: Get output.stdout
+  debug:
+    var: output.stdout
+
+- name: Some shit
+  template:
+    src: kek.j2
+    dest: ./newkek.cfg

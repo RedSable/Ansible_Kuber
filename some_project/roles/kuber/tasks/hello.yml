@@ -1,0 +1,3 @@
+- name: Make {{ kek_some_kek }}
+  command: echo {{ kek_some_kek }}
+  register: output
