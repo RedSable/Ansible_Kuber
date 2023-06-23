@@ -1,2 +1,6 @@
 kek_some_kek: "Hello there!"
 templatekek: "Some shit"
+# centOS_link_url: "https://mirrors.centos.org/mirrorlist?path=/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-dvd1.iso&redirect=1&protocol=https"
+centOS_link_url: https://github.com/mmcky/nyu-econ-370/raw/master/notebooks/data/book-war-and-peace.txt
+
+# curl -s -L -I https://mirrors.centos.org/mirrorlist?path=/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-dvd1.iso&redirect=1&protocol=https | awk 'BEGIN{RS="\r\n"} /^Content-Length/ { print $2 }'

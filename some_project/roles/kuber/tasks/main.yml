@@ -1,11 +1,28 @@
-- name: User role hello
-  import_tasks: hello.yml
+# - name: User role hello
+#   import_tasks: hello.yml
 
-- name: Get output.stdout
-  debug:
-    var: output.stdout
+# - name: Get output.stdout
+#   debug:
+#     var: output
 
-- name: Some shit
-  template:
-    src: kek.j2
-    dest: ./newkek.cfg
+# - name: Some shit
+#   template:
+#     src: kek.j2
+#     dest: ./newkek.cfg
+
+- name: Download sentOS image
+  ansible.builtin.get_url:
+    url: "{{ centOS_link_url }}"
+    dest: ./
+    validate_certs: false
+  async: 10000000
+  poll: 0
+  register: url_sleeper
+
+- name: Async check of downloading image
+  async_status:
+    jid: "{{ url_sleeper.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 1000000
+  delay: 1
